@@ -1,10 +1,10 @@
 #include "main.h"
 /**
  * main - first
- * Return: Returns 0
+ * Return: Returns 1
  */
 int main(void)
 {
 	_putchar();
-	return (0);
+	return (1);
 }
