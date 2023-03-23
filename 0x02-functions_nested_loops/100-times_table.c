@@ -17,16 +17,16 @@ for (j = 0; j <= n; j++)
 _putchar(',');
 _putchar(' ');
 s = i * j;
-if (s <= 9)
-_putchar(' ');
 if (s <= 99)
+_putchar(' ');
+if (s <= 9)
 _putchar(' ');
 if (s >= 100)
 {
 _putchar((s / 100) + 48);
 _putchar(((s / 10) % 10) + 48);
 }
-else if (s <= 99 && s >= 9)
+else if (s <= 99 && s > 9)
 {
 _putchar((s / 10) + 48);
 }
