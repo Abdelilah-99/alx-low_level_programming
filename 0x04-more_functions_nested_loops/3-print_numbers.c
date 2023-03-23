@@ -4,11 +4,9 @@
  */
 void print_numbers(void)
 {
-	int c;
-
-	for (c = '0'; c <= '9'; c++)
+	for (int i = '0'; i <= '9'; i++)
 	{
-		putchar(c);
+		putchar(i);
 	}
 	putchar('\n');
 }
