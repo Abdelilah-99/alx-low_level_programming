@@ -12,7 +12,7 @@ if (n >= 0 && n <= 15)
 for (i = 0; i <= n; i++)
 {
 _putchar('0');
-for (j = 0; j <= n; j++)
+for (j = 1; j <= n; j++)
 {
 _putchar(',');
 _putchar(' ');
@@ -26,13 +26,13 @@ if (s >= 100)
 _putchar((s / 100) + 48);
 _putchar(((s / 10) % 10) + 48);
 }
-else if (s <= 99 && s > 9)
+else if (s < 100 && s > 9)
 {
 _putchar((s / 10) + 48);
 }
 _putchar((s % 10) + 48);
 }
-_putchar(' ');
+_putchar('\n');
 }
 }
 }
