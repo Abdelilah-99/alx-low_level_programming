@@ -9,7 +9,6 @@ void print_triangle(int size)
 
 	if (size <= 0)
 	{
-		putchar(' ');
 		putchar('\n');
 	}
 	for (i = 1; i <= size; i++)
