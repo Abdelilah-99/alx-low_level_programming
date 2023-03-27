@@ -1,11 +1,14 @@
 #include "main.h"
 /**
- * swap_int - easy thimg
+ * swap_int - eee
  * @a: a = &a
  * @b: b = &b
  */
 void swap_int(int *a, int *b)
 {
-	*a = 42;
-	*b = 98;
+	int s;
+
+	s = *a;
+	*a = *b;
+	*b = s;
 }
