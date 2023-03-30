@@ -17,7 +17,7 @@ k[i] = k[i] - 32;
 }
 if (k[i] == ' ' || k[i] == ';' || k[i] == '.' || k[i] == ',' ||
 k[i] == '!' || k[i] == '{' || k[i] == '}' || k[i] == '?' || k[i] == '"' ||
-k[i] == ')' || k[i] == '(' || k[i] == '\t' || k[i] == '\n')
+k[i] == ')' || k[i] == '(' || k[i] == 9 || k[i] == 10)
 {
 test = 1;
 }
@@ -26,4 +26,15 @@ test = 0;
 i++;
 }
 return (k);
+}
+
+int main(void)
+{
+    char str[] = "Expect the best. Prepare for the worst. Capitalize on what comes.\nhello world! hello-world 0123456hello world\thello world.hello world\n";
+    char *ptr;
+
+    ptr = cap_string(str);
+    printf("%s", ptr);
+    printf("%s", str);
+    return (0);
 }
