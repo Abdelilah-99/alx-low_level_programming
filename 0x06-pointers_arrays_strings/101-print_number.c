@@ -5,7 +5,7 @@
  */
 void print_number(int n)
 {
-	int *p;
+	unsigned int *p;
 	int test = 1;
 
 	p = &n;
