@@ -6,6 +6,7 @@
 void print_number(int n)
 {
 	int *p;
+	int test = 1;
 
 	p = &n;
 	if (n < 0)
@@ -13,8 +14,6 @@ void print_number(int n)
 		_putchar('-');
 		*p *= -1;
 	}
-	int test = 1;
-
 	while (*p / test >= 10)
 	{
 		test *= 10;
@@ -26,4 +25,3 @@ void print_number(int n)
 		test = test / 10;
 	}
 }
-
