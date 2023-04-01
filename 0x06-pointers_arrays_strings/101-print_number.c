@@ -10,7 +10,7 @@ void print_number(int n)
 	p = &n;
 	if (n < 0)
 	{
-		putchar('-');
+		_putchar('-');
 		*p *= -1;
 	}
 	int test = 1;
@@ -21,7 +21,7 @@ void print_number(int n)
 	}
 	while (test > 0)
 	{
-		putchar(*p / test + 48);
+		_putchar(*p / test + 48);
 		*p %= test;
 		test = test / 10;
 	}
