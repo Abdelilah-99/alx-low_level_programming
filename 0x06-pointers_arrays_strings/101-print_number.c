@@ -5,23 +5,23 @@
  */
 void print_number(int n)
 {
-	unsigned int *p;
+	unsigned int s;
 	int test = 1;
 
-	p = &n;
 	if (n < 0)
 	{
 		_putchar('-');
-		*p *= -1;
+		n *= -1;
 	}
-	while (*p / test >= 10)
+	s = n;
+	while (s / test >= 10)
 	{
 		test *= 10;
 	}
 	while (test > 0)
 	{
-		_putchar(*p / test + 48);
-		*p %= test;
+		_putchar(s / test + 48);
+		s %= test;
 		test = test / 10;
 	}
 }
