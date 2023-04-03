@@ -4,7 +4,7 @@
  * @dest: yes it happen
  * @src: hjhj
  * @n: i don't know why i can solve the probleme
- * Return: dest 
+ * Return: dest
  */
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
