@@ -14,9 +14,9 @@ int nw_pm(int x, int y)
 {
 	if (y < 2 || y % x == 0)
 		return (0);
-	if (x > y/2)
+	if (x > y / 2)
 		return (1);
-	return (nw_pm (x + 1, y));
+	return (nw_pm(x + 1, y));
 }
 /**
  * is_prime_number - here we check if only n is 2 caus
