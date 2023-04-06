@@ -12,7 +12,7 @@
 int _nw_rc(int n, int count)
 {
 	if (count * count <= n)
-	count = _nw_rc(n, count + 1)
+	count = _nw_rc(n, count + 1);
 		return (count);
 }
 /**
