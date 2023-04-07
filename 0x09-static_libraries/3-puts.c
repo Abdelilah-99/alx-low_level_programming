@@ -1,4 +1,5 @@
 #include "main.h"
+#include <unistd.h>
 /**
  * _puts - this will print a string of caractere
  * @str: *str = &str or we can say that *str is lik array
@@ -10,8 +11,8 @@ void _puts(char *str)
 
 	while (str[i] != '\0')
 	{
-		putchar(str[i]);
+		_putchar(str[i]);
 		i++;
 	}
-	putchar('\n');
+	_putchar('\n');
 }
