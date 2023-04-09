@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 {
 	int i = 0, sum = 0, tst = 1;
 
-	if (argc < 1)
+	if (argc < 2)
 	printf("0\n");
 	for (i = 1; argv[i] != NULL; i++)
 	{
