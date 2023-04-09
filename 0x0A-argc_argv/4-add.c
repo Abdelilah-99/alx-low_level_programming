@@ -11,10 +11,13 @@
  */
 int main(int argc, char *argv[])
 {
-	int i = 0, sum = 0, tst = 1;
+	int i = 0, sum, tst = 1;
 
 	if (argc < 2)
-	printf("0\n");
+	{
+		printf("0\n");
+		return (0);
+	}
 	for (i = 1; argv[i] != NULL; i++)
 	{
 		if (!isdigit(argv[i][0]))
@@ -30,13 +33,14 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		i = 0;
+		i = 1;
+		sum = 0;
 		while (i < argc)
 		{
 			sum += atoi(argv[i]);
 			i++;
 		}
-	printf("%d\n", sum);
+		printf("%d\n", sum);
 	}
 	return (0);
 }
