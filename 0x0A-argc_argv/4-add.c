@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
 /**
@@ -11,25 +10,27 @@
  */
 int main(int argc, char *argv[])
 {
-	int i = 0, sum, tst = 1;
+	int i = 0, sum = 0, tst = 1, j;
 
 	if (argc < 2)
 	{
 		printf("0\n");
-		return (1);
+		return (0);
 	}
 	for (i = 1; argv[i]; i++)
 	{
-		if (!isdigit(argv[i][0]) && argv[i][0] != '-')
+		for (j = 0; argv[i][j]; j++)
 		{
-			tst = 0;
-			break;
+		if (!isdigit(argv[i][j]) && argv[i][j] != '-')
+			{
+				tst = 0;
+				break;
+			}
 		}
 	}
 	if (tst)
 	{
 		i = 1;
-		sum = 0;
 		while (i < argc)
 		{
 			sum += atoi(argv[i]);
