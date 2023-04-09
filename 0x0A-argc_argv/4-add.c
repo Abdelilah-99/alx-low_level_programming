@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdlib.h>
 /**
  * main - this is a proramme that check if the arg are digit and cal the sum
  * if it not it peint error and return 1
@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 		printf("0\n");
 		return (0);
 	}
-	for (i = 1; argv[i] != NULL; i++)
+	for (i = 1; argv[i]; i++)
 	{
 		if (!isdigit(argv[i][0]))
 		{
