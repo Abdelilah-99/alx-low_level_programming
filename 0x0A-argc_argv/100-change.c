@@ -3,7 +3,7 @@
  #include <string.h>
  #include <ctype.h>
  /**
-  * main - hna had lprojet kaya7ssab lminimum d serf lii y9edd yradd
+  * main - hna had lprojet kaya7ssab lminimum d serf lii yreed
   * @argc: kif l3ada
   * @argv: htta hya
   * Return: 1 if there an error else 0
