@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * create_array - had lprogramme kaychuf size wach equal l 0
  * muraha katchuuf wach kayan espace f la memoire ram
@@ -11,14 +12,15 @@
  */
 char *create_array(unsigned int size, char c)
 {
+	char *T;
+	unsigned int i;
+	
 	if (size == 0)
 		return (NULL);
-	char *T = malloc(sizeof(*T) * size);
-
+	T = malloc(sizeof(*T) * size);
 	if (T == NULL)
 		return (NULL);
-	unsigned int i = 0;
-
+	i = 0;
 	while (i < size)
 	{
 		T[i] = c;
