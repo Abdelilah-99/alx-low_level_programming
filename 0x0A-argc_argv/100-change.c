@@ -1,37 +1,40 @@
- #include <stdio.h>
- #include <stdlib.h>
- #include <string.h>
- #include <ctype.h>
- /**
-  * main - hna had lprojet kaya7ssab lminimum d serf lii yreed
-  * @argc: kif l3ada
-  * @argv: htta hya
-  * Return: 1 if there an error else 0
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * main - Minimum num of coins to make change for an amount of money
+ * @argc: The number of command-line arguments
+ * @argv: the array of arguments
+ * Return: 0 if successful, 1 otherwise
  */
- int main(int argc, char *argv[])
- {
-    int cents, coins;
+int main(int argc, char *argv[])
+{
+    int i = 0, cents = 0, coins = 0;
+    int values[] = {25, 10, 5, 2, 1};
+    int size = sizeof(values) / sizeof(values[0]);
+
     if (argc != 2)
     {
         printf("Error\n");
         return (1);
     }
-        cents = atoi(argv[1]);
-        if (cents < 0)
-        {
+
+    cents = atoi(argv[1]);
+    if (cents < 0)
+    {
         printf("0\n");
         return (0);
-        }
-        coins = 0;
-        coins += cents / 25;
-        cents %= 25;
-        coins += cents / 10; 
-        cents %= 10;       
-        coins += cents / 5;  
-        cents %= 5;         
-        coins += cents / 2;  
-        cents %= 2;         
-        coins += cents;     
-            printf("%d\n", coins);
-         return (0);
- }
+    }
+
+    for (; i < size; i++)
+    {
+        coins += cents / values[i];
+        cents %= values[i];
+
+        if (cents == 0)
+            break;
+    }
+
+    printf("%d\n", coins);
+    return (0);
+}
