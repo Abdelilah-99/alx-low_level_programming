@@ -1,4 +1,4 @@
-#include "main.h"
+#include "dog.h"
 /**
  * free_dog - just to empty the box
  * @d: the box
