@@ -2,6 +2,6 @@
 #define OBJECT_LIKE_MACRO_H
 #include <stdio.h>
 #include <stdlib.h>
-#define SIZE 1024
+#define PI 3.14159265359
 
 #endif
