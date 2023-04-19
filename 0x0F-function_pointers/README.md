@@ -1,0 +1,1 @@
+ghadi n7awal nafhaam function pointer b chkel 3aam hyaaa lii kathazz adresse d wa7ad l function
