@@ -5,7 +5,8 @@
  * tapwantii 3la adresse ta3h
  * @array: array w sf
  * @size: la taill d array
- * @action: hadi ghady diir wa7ad l pass d les info lii kaynin f array l finction
+ * @action: hadi ghady diir wa7ad l
+ * pass d les info lii kaynin f array l finction
  * akhriin li ba3da action pointer kathazz adress ta3hum
  *
  */
