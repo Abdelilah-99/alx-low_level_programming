@@ -10,6 +10,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	unsigned int i = 0;
 	char *str;
 	int check;
+
 	va_start(ls, n);
 
 	for (; i < n; i++)
