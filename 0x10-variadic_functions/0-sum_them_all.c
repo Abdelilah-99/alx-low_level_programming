@@ -1,4 +1,4 @@
-#include "main.h"
+#include "variadic_functions.h"
 /**
  * sum_them_all - function ta7ssab sum b arg
  * @n: nmbr ds args
