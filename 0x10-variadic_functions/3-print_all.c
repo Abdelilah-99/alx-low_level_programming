@@ -15,7 +15,7 @@ void print_all(const char * const format, ...)
 
 	i = 0;
 	check = 0;
-	while (format[i] != NULL && format[i] != '0')
+	while (format != NULL && format[i] != '\0')
 	{
 		switch (format[i])
 		{
@@ -47,4 +47,9 @@ void print_all(const char * const format, ...)
 		i++;
 	}
 	printf("\n");
+}
+int main(void)
+{
+    print_all("ceis", 'B', 3, "stSchool");
+    return (0);
 }
