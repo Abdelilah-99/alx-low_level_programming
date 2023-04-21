@@ -7,12 +7,10 @@
 void print_all(const char * const format, ...)
 {
 	va_list ls;
-	unsigned int i;
-	int check;
+	unsigned int i, check;
 	char *str;
 
 	va_start(ls, format);
-
 	i = 0;
 	check = 0;
 	while (format != NULL && format[i] != '\0')
@@ -47,9 +45,5 @@ void print_all(const char * const format, ...)
 		i++;
 	}
 	printf("\n");
-}
-int main(void)
-{
-    print_all("ceis", 'B', 3, "stSchool");
-    return (0);
+	va_end(ls);
 }
