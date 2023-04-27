@@ -4,9 +4,9 @@
  * @s: pointer to str
  * Return: len
 */
-unsigned int _len(char *s)
+int _len(const char *s)
 {
-	unsigned int len = 0;
+	int len = 0;
 
 	for (; s[len]; len++)
 		;
