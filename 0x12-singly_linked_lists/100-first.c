@@ -1,4 +1,7 @@
 #include "lists.h"
+
+void __attribute__((constructor)) before_main();
+
 /**
  * before_main - func that print before main
  *
