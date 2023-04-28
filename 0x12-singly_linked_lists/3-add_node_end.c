@@ -22,10 +22,10 @@ int _len(const char *s)
 */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	if (str == NULL)
-		return (NULL);
 	list_t *tail, *tmp;
 
+	if (str == NULL)
+		return (NULL);
 	tail = malloc(sizeof(list_t));
 		if (tail == NULL)
 			return (NULL);
