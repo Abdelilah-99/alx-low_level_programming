@@ -33,8 +33,10 @@ list_t *add_node_end(list_t **head, const char *str)
 	tail->len = _len(str);
 	tail->next = NULL;
 	if (tail->str == NULL)
+	{
 		free(tail);
-	return (NULL);
+		return (NULL);
+	}
 	if (*head == NULL)
 	{
 		*head = tail;
