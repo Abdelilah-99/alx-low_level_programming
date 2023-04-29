@@ -1,6 +1,6 @@
 #include "lists.h"
 /**
- * add_nodeint_end - func add node at the beginning
+ * add_nodeint - func add node at the beginning
  * @head: pointer to pointer to list_t
  * @n: cnst n
  * Return: n or NULL
