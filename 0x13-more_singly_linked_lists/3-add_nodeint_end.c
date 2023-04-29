@@ -1,6 +1,6 @@
 #include "lists.h"
 /**
- * add_nodeint_end - add new node at the begining
+ * add_nodeint_end - add new node at thee begining
  * @head: double pointer to lis-t
  * @n: cnt val
  * Return: i or NULL
