@@ -20,6 +20,8 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		free(crr);
 		return (1);
 	}
+	if (crr)
+		return (-1);
 	for (; i < index; i++)
 	{
 		prv = crr;
