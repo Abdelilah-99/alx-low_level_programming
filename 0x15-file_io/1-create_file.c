@@ -25,7 +25,7 @@ int create_file(const char *filename, char *text_content)
 	/*n9eduu na9rawah w nktbuh*/
 	/* trunc bach file ila kant fiih chii haja yakhwa 0600 permission w sf*/
 	w = write(o, text_content, i);
-	if (!o || !w)
+	if (o == -1|| w == -1)
 		return (-1);
 	close(o);
 	return (1);
