@@ -23,12 +23,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 	r = fread(buff, sizeof(char), letters, fp);
-	if (!r || ferror(fp))
-	{
-		fclose(fp);
-		free(buff);
-		return (0);
-	}
 	w = write(STDOUT_FILENO, buff, r);
 	if (r != w)
 	{
