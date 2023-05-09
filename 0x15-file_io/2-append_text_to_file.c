@@ -11,6 +11,8 @@ int append_text_to_file(const char *filename, char *text_content)
 	FILE *fp;
 	unsigned int i = 0;
 
+	if (!filename)
+		return (-1);
 	fp = fopen(filename, "a");
 	for (; text_content[i]; i++)
 		;
