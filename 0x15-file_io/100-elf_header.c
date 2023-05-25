@@ -4,12 +4,12 @@
 #include <unistd.h>
 #include <elf.h>
 
-void display_elf_header(const Elf64_Ehdr *elf_header);
-void display_error(const char *error_message);
-void print_version(const Elf64_Ehdr *elf_header);
-void print_osabi(const Elf64_Ehdr *elf_header);
-void print_type(const Elf64_Ehdr *elf_header);
-void print_entry(const Elf64_Ehdr *elf_header);
+void dpy_elf_hdr(const Elf64_Ehdr *elf_hdr);
+void dpy_err(const char *err_msg);
+void pnt_vsn(const Elf64_Ehdr *elf_hdr);
+void pnt_osabi(const Elf64_Ehdr *elf_hdr);
+void print_type(const Elf64_Ehdr *elf_hdr);
+void print_entry(const Elf64_Ehdr *elf_hdr);
 
 /**
  * main - check the code
@@ -21,48 +21,48 @@ void print_entry(const Elf64_Ehdr *elf_header);
 
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-	const char *file_path;
+	const char *f_h;
 	int fd;
-	Elf64_Ehdr elf_header;
+	Elf64_Ehdr elf_hdr;
 
 	if (argc != 2)
-		display_error("Usage: elf_header elf_filename");
+		dpy_err("Usage: elf_header elf_filename");
 
-	file_path = argv[1];
+	f_h = argv[1];
 
-	fd = open(file_path, O_RDONLY);
+	fd = open(f_h, O_RDONLY);
 	if (fd < 0)
-		display_error("Failed to open file");
+		dpy_err("Failed to open file");
 
-	if (read(fd, &elf_header, sizeof(Elf64_Ehdr)) != sizeof(Elf64_Ehdr))
+	if (read(fd, &elf_hdr, sizeof(Elf64_Ehdr)) != sizeof(Elf64_Ehdr))
 	{
 		close(fd);
-		display_error("Failed to read ELF header");
+		dpy_err("Failed to read ELF header");
 	}
 
 	/* Verify the file is an ELF file */
-	if (elf_header.e_ident[EI_MAG0] != ELFMAG0 ||
-		elf_header.e_ident[EI_MAG1] != ELFMAG1 ||
-		elf_header.e_ident[EI_MAG2] != ELFMAG2 ||
-		elf_header.e_ident[EI_MAG3] != ELFMAG3)
+	if (elf_hdr.e_ident[EI_MAG0] != ELFMAG0 ||
+		elf_hdr.e_ident[EI_MAG1] != ELFMAG1 ||
+		elf_hdr.e_ident[EI_MAG2] != ELFMAG2 ||
+		elf_hdr.e_ident[EI_MAG3] != ELFMAG3)
 	{
-		display_error("The file is not an ELF file");
+		dpy_err("The file is not an ELF file");
 	}
 
-	display_elf_header(&elf_header);
+	dpy_elf_hdr(&elf_hdr);
 
 	close(fd);
 	return (0);
 }
 
 /**
- * display_elf_header - ...
- * @elf_header: ...
+ * dpy_elf_hdr - ...
+ * @elf_hdr: ...
  *
  * Return: ...
  */
 
-void display_elf_header(const Elf64_Ehdr *elf_header)
+void dpy_elf_hdr(const Elf64_Ehdr *elf_hdr)
 {
 	int i;
 
@@ -70,67 +70,67 @@ void display_elf_header(const Elf64_Ehdr *elf_header)
 
 	printf("  Magic:   ");
 	for (i = 0; i < (EI_NIDENT - 1); i++)
-		printf("%02x ", elf_header->e_ident[i]);
-	printf("%02x", elf_header->e_ident[i]);
+		printf("%02x ", elf_hdr->e_ident[i]);
+	printf("%02x", elf_hdr->e_ident[i]);
 	printf("\n");
 
 	printf("  Class:                             %s\n",
-			elf_header->e_ident[EI_CLASS] == ELFCLASS32 ? "ELF32" : "ELF64");
+			elf_hdr->e_ident[EI_CLASS] == ELFCLASS32 ? "ELF32" : "ELF64");
 
 	printf("  Data:                              %s\n",
-			elf_header->e_ident[EI_DATA] == ELFDATA2LSB
+			elf_hdr->e_ident[EI_DATA] == ELFDATA2LSB
 			? "2's complement, little endian"
 			: "2's complement, big endian");
 
-	print_version(elf_header);
-	print_osabi(elf_header);
+	pnt_vsn(elf_hdr);
+	pnt_osabi(elf_hdr);
 
 	printf("  ABI Version:                       %d\n",
-			elf_header->e_ident[EI_ABIVERSION]);
+			elf_hdr->e_ident[EI_ABIVERSION]);
 
-	print_type(elf_header);
+	print_type(elf_hdr);
 
-	print_entry(elf_header);
+	print_entry(elf_hdr);
 }
 
 /**
- * display_error - ...
- * @error_message: ...
+ * dpy_err - ...
+ * @err_msg: ...
  *
  * Return: ...
  */
 
-void display_error(const char *error_message)
+void dpy_err(const char *err_msg)
 {
-	fprintf(stderr, "Error: %s\n", error_message);
+	fprintf(stderr, "Error: %s\n", err_msg);
 	exit(98);
 }
 
 /**
- * print_version - Prints the version of an ELF header.
- * @elf_header: ...
+ * pnt_vsn - Prints the version of an ELF header.
+ * @elf_hdr: ...
  */
 
-void print_version(const Elf64_Ehdr *elf_header)
+void pnt_vsn(const Elf64_Ehdr *elf_hdr)
 {
 	printf("  Version:                           %d",
-			elf_header->e_ident[EI_VERSION]);
+			elf_hdr->e_ident[EI_VERSION]);
 
-	if (elf_header->e_ident[EI_VERSION] == EV_CURRENT)
+	if (elf_hdr->e_ident[EI_VERSION] == EV_CURRENT)
 		printf(" (current)\n");
 	else
 		printf("\n");
 }
 
 /**
- * print_osabi - Prints the osabi indent of an ELF header.
- * @elf_header: ...
+ * pnt_osabi - Prints the osabi indent of an ELF header.
+ * @elf_hdr: ...
  */
 
-void print_osabi(const Elf64_Ehdr *elf_header)
+void pnt_osabi(const Elf64_Ehdr *elf_hdr)
 {
 	printf("  OS/ABI:                            ");
-	switch (elf_header->e_ident[EI_OSABI])
+	switch (elf_hdr->e_ident[EI_OSABI])
 	{
 		case ELFOSABI_SYSV:
 			printf("UNIX - System V\n");
@@ -166,21 +166,21 @@ void print_osabi(const Elf64_Ehdr *elf_header)
 			printf("Standalone App\n");
 			break;
 		default:
-			printf("<unknown: %x>\n", elf_header->e_ident[EI_OSABI]);
+			printf("<unknown: %x>\n", elf_hdr->e_ident[EI_OSABI]);
 			break;
 	}
 }
 
 /**
- * print_type - Prints the type of an ELF header.
- * @elf_header: ...
+ * pnt_typ - Prints the type of an ELF header.
+ * @elf_hdr: ...
  */
 
-void print_type(const Elf64_Ehdr *elf_header)
+void pnt_typ(const Elf64_Ehdr *elf_hdr)
 {
-	unsigned int e_type = elf_header->e_type;
+	unsigned int e_type = elf_hdr->e_type;
 
-	if (elf_header->e_ident[EI_DATA] == ELFDATA2MSB)
+	if (elf_hdr->e_ident[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
 
 	printf("  Type:                              ");
@@ -208,14 +208,14 @@ void print_type(const Elf64_Ehdr *elf_header)
 }
 
 /**
- * print_entry - Prints the entry point of an ELF header.
- * @elf_header: ...
+ * pnt_ent - Prints the entry point of an ELF header.
+ * @elf_hdr: ...
  */
 
-void print_entry(const Elf64_Ehdr *elf_header)
+void pnt_ent(const Elf64_Ehdr *elf_hdr)
 {
-	const unsigned char *ei = elf_header->e_ident;
-	Elf64_Addr ee = elf_header->e_entry;
+	const unsigned char *ei = elf_hdr->e_ident;
+	Elf64_Addr ee = elf_hdr->e_entry;
 
 	printf("  Entry point address:               ");
 
