@@ -8,8 +8,8 @@ void dpy_elf_hdr(const Elf64_Ehdr *elf_hdr);
 void dpy_err(const char *err_msg);
 void pnt_vsn(const Elf64_Ehdr *elf_hdr);
 void pnt_osabi(const Elf64_Ehdr *elf_hdr);
-void print_type(const Elf64_Ehdr *elf_hdr);
-void print_entry(const Elf64_Ehdr *elf_hdr);
+void pnt_typ(const Elf64_Ehdr *elf_hdr);
+void pnt_ent(const Elf64_Ehdr *elf_hdr);
 
 /**
  * main - check the code
